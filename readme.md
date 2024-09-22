@@ -7,6 +7,13 @@ bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/ma
 #bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/refs/heads/main/singbox/singbox_install.sh)
 ```
 
+#一键脚本卸载：
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/singbox/singbox_uninstall.sh)
+```
+
+
 ## Github Actions 保活
 
 Settings >> Secrets and variables >> Actions >> Repository secrets >> New repository secret

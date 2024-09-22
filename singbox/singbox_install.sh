@@ -1,3 +1,4 @@
+#!/bin/bash
 ##（1）节点配置
 #服务端 IP 地址（仅用于输出节点链接）
 SERVER_IP="s12.serv00.com"

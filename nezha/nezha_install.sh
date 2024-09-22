@@ -55,8 +55,11 @@ cd ${NEZHA_DIR}
 TMPDIR="${NEZHA_DIR}" exec ${NEZHA_DIR}/nezha-agent -s ${NZ_DASHBOARD_SERVER}:${NZ_DASHBOARD_PORT} -p ${NZ_DASHBOARD_PASSWORD} --report-delay 4 --disable-auto-update --disable-force-update ${ARGS} >/dev/null 2>&1
 EOF
   chmod +x ${NEZHA_DIR}/start.sh
+  cat >stop.sh <<EOF
+pgrep -f 'nezha-agent' | xargs -r kill
+EOF
+  chmod +x stop.sh
 }
-
 
 install_and_run_nezha_agent() {
   mkdir -p ${NEZHA_DIR}
