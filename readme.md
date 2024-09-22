@@ -1,13 +1,19 @@
 ## 快速使用
 
-一键脚本安装 singbox 并自动配置 socks5、vless+ws、hysteria2 节点：
+一键脚本安装 sing-box 并自动配置 socks5、vless+ws、hysteria2 节点：
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/singbox/singbox_install.sh)
 #bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/refs/heads/main/singbox/singbox_install.sh)
 ```
 
-一键脚本卸载 singbox 和相关配置：
+> 说明：
+>
+> - 默认安装目录：`$HOME/.sb`
+> - 脚本安装时根据交互提示，输入各种节点主要配置信息即可，安装脚本会默认自动启动 sing-box，并自动添加重启任务到 crontab 中。脚本安装好后会自动生成节点链接到 `$HOME/.sb/links.txt` 文件中。
+> - 如需修改节点配置，只需修改 sing-box 配置文件（`$HOME/.sb/config.json`）然后重启即可（重启  sing-box 命令：`cd $HOME/.sb; ./stop.sh && ./start-nohup.sh`），注意：手动修改配置文件重启，不会自动更新 `links.txt` 节点链接文件。
+
+一键脚本卸载 sing-box 和相关配置：
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/singbox/singbox_uninstall.sh)
@@ -20,6 +26,8 @@ bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/ma
 bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/nezha/nezha_install.sh)
 #bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/refs/heads/main/nezha/nezha_install.sh)
 ```
+
+默认安装目录：`$HOME/.nezha-agent`
 
 一键脚本卸载 nezha-agent 和相关配置：
 
