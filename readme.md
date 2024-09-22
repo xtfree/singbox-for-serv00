@@ -1,3 +1,12 @@
+# singbox-for-serv00
+
+在 Serv00 或 CT8 机器上通过一键脚本安装和配置 sing-box（支持 socks5、vless+ws、hysteria2 节点），支持一键安装配置 nezha-agent。支持 Crontab 保持进程活跃，并借助 GitHub Actions 实现帐号续期与自动化管理，确保长期稳定运行。
+
+- socks5 节点可用于 [cmliu/edgetunnel](https://github.com/cmliu/edgetunnel) 项目，帮助 CF vless 节点解锁 ChatGPT 等服务。
+- vless+ws 节点可自行套用 CDN 实现代理加速（建议在 CDN 中加 TLS）。
+- hysteria2 节点主要用于抢占带宽来提升网速体验（如果网络可连通 ）。
+
+
 ## 快速使用
 
 一键脚本安装 sing-box 并自动配置 socks5、vless+ws、hysteria2 节点：
@@ -54,7 +63,10 @@ Settings >> Secrets and variables >> Actions >> Repository secrets >> New reposi
     
     > 说明：请根据自己 Serv00 账号情况对 Secret 进行修改。以上秘钥内容是多个账号的情况，单个账号只需保留一个 json 对象即可
 
-更详细操作参考：https://blog.cmliussss.com/p/Serv00-Socks5/
+更详细操作参考：
+
+- https://blog.cmliussss.com/p/Serv00-Socks5/
+- https://www.youtube.com/watch?v=L6gPyyD3dUw
 
 ## 参考
 
