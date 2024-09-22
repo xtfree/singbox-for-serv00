@@ -1,17 +1,33 @@
 ## 快速使用
 
-一键脚本安装：
+一键脚本安装 singbox 并自动配置 socks5、vless+ws、hysteria2 节点：
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/singbox/singbox_install.sh)
 #bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/refs/heads/main/singbox/singbox_install.sh)
 ```
 
-#一键脚本卸载：
+一键脚本卸载 singbox 和相关配置：
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/singbox/singbox_uninstall.sh)
 ```
+
+
+一键脚本安装 nezha-agent 并自动配置：
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/nezha/nezha_install.sh)
+#bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/refs/heads/main/nezha/nezha_install.sh)
+```
+
+一键脚本卸载 nezha-agent 和相关配置：
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/nezha/nezha_uninstall.sh)
+```
+
+
 
 
 ## Github Actions 保活
