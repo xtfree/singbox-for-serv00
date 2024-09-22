@@ -1,0 +1,42 @@
+name: Execute SSH Commands
+
+on:
+  workflow_dispatch: # 手动触发工作流
+  schedule:
+    - cron: "30 0,13 * * *"  # 每天 北京时间 早8点30分 晚9点30分 各运行一次
+
+jobs:
+  execute-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up SSHPass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Get ACCOUNTS_JSON
+        id: get-accounts
+        run: |
+          echo "$ACCOUNTS_JSON" > accounts.json
+        env:
+          ACCOUNTS_JSON: ${{ secrets.ACCOUNTS_JSON }}
+        # 从 GitHub Secrets 获取 ACCOUNTS_JSON 变量，并保存到文件 accounts.json
+
+      - name: Generate SSH Commands
+        id: generate-ssh-commands
+        run: |
+          echo "#!/bin/bash" > sshpass.sh
+          while IFS= read -r account; do
+            username=$(echo "$account" | jq -r '.username')
+            password=$(echo "$account" | jq -r '.password')
+            ssh=$(echo "$account" | jq -r '.ssh')
+            cat >> sshpass.sh << EOF
+            echo "Executing for $username@$ssh"
+            sshpass -p '$password' ssh -o StrictHostKeyChecking=no $username@$ssh "\
+            bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/singbox/check_cron_sb.sh); \
+            bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/nezha/check_cron_nezha.sh) \
+            "
+            EOF
+          done < <(jq -c '.[]' accounts.json)
+          chmod +x sshpass.sh
+
+      - name: Execute SSH Commands
+        run: ./sshpass.sh
