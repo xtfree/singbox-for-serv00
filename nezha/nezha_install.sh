@@ -130,4 +130,4 @@ install_and_run_nezha_agent() {
 
 install_and_run_nezha_agent
 
-bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/nezha/check_cron_nezha.sh)
+bash <(curl -s https://raw.githubusercontent.com/xtfree/singbox-for-serv00/main/nezha/check_cron_nezha.sh)
