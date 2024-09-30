@@ -181,7 +181,7 @@ pgrep -x "$SB_EXE" >/dev/null && echo -e "\e[1;32m$SB_EXE is running\e[0m" || {
 }
 
 ##（4）添加 crontab 守护进程的计划任务
-bash <(curl -s https://raw.githubusercontent.com/swirl9553/singbox-for-serv00/main/singbox/check_cron_sb.sh)
+bash <(curl -s https://raw.githubusercontent.com/xtfree/singbox-for-serv00/main/singbox/check_cron_sb.sh)
 
 ##（5）将节点链接写入 links.txt 文件
 rm -f links.txt
